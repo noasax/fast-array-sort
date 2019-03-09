@@ -1,0 +1,29 @@
+{
+  "name": "fast-array-sort",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "cover": "istanbul cover  _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noasax/fast-array-sort.git"
+  },
+  "author": "juyoung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noasax/fast-array-sort/issues"
+  },
+  "homepage": "https://github.com/noasax/fast-array-sort#readme",
+  "devDependencies": {
+    "mocha": "^6.0.2",
+    "should": "^13.2.3",
+    "istanbul": "^0.4.5",
+    "coveralls": "^3.0.3",
+    "mocha-lcov-reporter": "^1.3.0"
+  },
+  "dependencies": {}
+}
