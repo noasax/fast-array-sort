@@ -1,4 +1,4 @@
-function partition(arr: Array<number>, l: number = 0, r: number = arr.length - 1): number {
+function partition(arr: Array<any>, l: number = 0, r: number = arr.length - 1): number {
 	const pivot = l;
 
 	let _l = l + 1, _r = r;
