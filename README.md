@@ -4,7 +4,7 @@
 # fast-array-sort
 
 ## Installation
-```sh
+```bash
 npm install fast-array-sort
 ```
 
@@ -13,11 +13,13 @@ npm install fast-array-sort
 ### JavaScript
 ```javascript
 const sort = require('../src/index').default;
+
 console.log(sort([4, 2, 5, 1, 3]));
 ```
 
 ### TypeScript
 ```typescript
 import sort from '../src/index';
+
 console.log(sort([4, 2, 5, 1, 3]));
 ```
