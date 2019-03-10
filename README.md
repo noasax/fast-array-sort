@@ -4,20 +4,20 @@
 # fast-array-sort
 
 ## Installation
-```
+```sh
 npm install fast-array-sort
 ```
 
 ## Usage
 
 ### JavaScript
-```
+```javascript
 const sort = require('../src/index').default;
 console.log(sort([4, 2, 5, 1, 3]));
 ```
 
 ### TypeScript
-```
+```typescript
 import sort from '../src/index';
 console.log(sort([4, 2, 5, 1, 3]));
 ```
