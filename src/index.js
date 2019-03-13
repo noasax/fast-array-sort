@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 function partition(arr, l = 0, r = arr.length - 1) {
     const pivot = l;
     let _l = l + 1, _r = r;
@@ -26,4 +25,4 @@ function sort(arr, l = 0, r = arr.length - 1) {
     sort(arr, pivot + 1, r);
     return arr;
 }
-exports.default = sort;
+module.exports = sort;

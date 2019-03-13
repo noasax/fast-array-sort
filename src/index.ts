@@ -26,5 +26,5 @@ function sort(arr: Array<any>, l: number = 0, r: number = arr.length - 1): Array
 	return arr;
 }
 
-export default sort;
+export = sort;
 
