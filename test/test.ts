@@ -29,11 +29,7 @@ describe('basic sort', function() {
     sort(arr).should.eql([1, 1, 1, 2, 2, 3, 4, 5, 5]);
   }),
   it('1000 length', () => {
-    const arr : number[] = [...Array(100000)].map(_ => Math.random() * 100);
-    sort(arr);
-  }),
-  it('1000 length', () => {
-    const arr : number[] = [...Array(100000)].map(_ => Math.random() * 100);
-    arr.sort();
+    const arr : number[] = [...Array(1000)].map(_ => Math.random() * 100);
+    sort(arr).should.eql(arr.sort());
   })
 });
