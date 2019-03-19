@@ -15,7 +15,7 @@ function partition(arr: any[], l: number = 0, r: number = arr.length - 1): numbe
 }
 
 function insertionSort (arr: any[], l: number = 0, r: number = arr.length - 1): any[]{
-	for (let i = l; i <= r; i++) {
+	for (let i = l + 1; i <= r; i++) {
 	  let value = arr[i];
 	  let j = i - 1;
 	  for (; j >= l && arr[j] > value; j--) {
@@ -27,9 +27,6 @@ function insertionSort (arr: any[], l: number = 0, r: number = arr.length - 1): 
 }
 
 function sort(arr: any[], l: number = 0, r: number = arr.length - 1): any[] {
-	if(r - l <= 0) {
-		return arr;
-	}
 	if(r - l <= 50) {
 		return insertionSort(arr, l, r);
 	}
