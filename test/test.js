@@ -32,7 +32,11 @@ describe('basic sort', function () {
             index_1.default(arr).should.eql([1, 1, 1, 2, 2, 3, 4, 5, 5]);
         }),
         it('1000 length', () => {
-            const arr = [...Array(1000)].map(_ => Math.random() * 100);
-            index_1.default(arr).should.eql(arr.sort());
+            const arr = [...Array(100000)].map(_ => Math.random() * 100);
+            index_1.default(arr);
+        }),
+        it('1000 length', () => {
+            const arr = [...Array(100000)].map(_ => Math.random() * 100);
+            arr.sort();
         });
 });

@@ -1,4 +1,4 @@
-function partition(arr: Array<any>, l: number = 0, r: number = arr.length - 1): number {
+function partition(arr: any[], l: number = 0, r: number = arr.length - 1): number {
 	const pivot = l;
 
 	let _l = l + 1, _r = r;
@@ -14,9 +14,24 @@ function partition(arr: Array<any>, l: number = 0, r: number = arr.length - 1): 
 	return _r;
 }
 
-function sort(arr: Array<any>, l: number = 0, r: number = arr.length - 1): Array<any> {
+function insertionSort (arr: any[], l: number = 0, r: number = arr.length - 1): any[]{
+	for (let i = l; i <= r; i++) {
+	  let value = arr[i];
+	  let j = i - 1;
+	  for (; j >= l && arr[j] > value; j--) {
+		arr[j + 1] = arr[j];
+	  }
+	  arr[j + 1] = value;
+	}
+	return arr;
+}
+
+function sort(arr: any[], l: number = 0, r: number = arr.length - 1): any[] {
 	if(r - l <= 0) {
 		return arr;
+	}
+	if(r - l <= 50) {
+		return insertionSort(arr, l, r);
 	}
 
 	const pivot: number = partition(arr, l, r);

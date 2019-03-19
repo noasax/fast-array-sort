@@ -16,9 +16,23 @@ function partition(arr, l = 0, r = arr.length - 1) {
     }
     return _r;
 }
+function insertionSort(arr, l = 0, r = arr.length - 1) {
+    for (let i = l; i <= r; i++) {
+        let value = arr[i];
+        let j = i - 1;
+        for (; j >= l && arr[j] > value; j--) {
+            arr[j + 1] = arr[j];
+        }
+        arr[j + 1] = value;
+    }
+    return arr;
+}
 function sort(arr, l = 0, r = arr.length - 1) {
     if (r - l <= 0) {
         return arr;
+    }
+    if (r - l <= 50) {
+        return insertionSort(arr, l, r);
     }
     const pivot = partition(arr, l, r);
     sort(arr, l, pivot - 1);
