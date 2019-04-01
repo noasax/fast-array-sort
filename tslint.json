@@ -1,0 +1,12 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "prettier": true,
+    "variable-name": [true, "allow-leading-underscore"],
+    "curly": [true, "ignore-same-line"],
+    "no-implicit-dependencies": false
+  },
+  "rulesDirectory": ["tslint-plugin-prettier"]
+}

@@ -1,7 +1,8 @@
 "use strict";
 function partition(arr, l = 0, r = arr.length - 1) {
     const pivot = l;
-    let _l = l + 1, _r = r;
+    let _l = l + 1;
+    let _r = r;
     while (_l <= _r) {
         for (; _l <= r && arr[_l] < arr[pivot]; _l++)
             ;
@@ -18,7 +19,7 @@ function partition(arr, l = 0, r = arr.length - 1) {
 }
 function insertionSort(arr, l = 0, r = arr.length - 1) {
     for (let i = l + 1; i <= r; i++) {
-        let value = arr[i];
+        const value = arr[i];
         let j = i - 1;
         for (; j >= l && arr[j] > value; j--) {
             arr[j + 1] = arr[j];
