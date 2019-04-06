@@ -1,40 +1,44 @@
 "use strict";
-function partition(arr, l = 0, r = arr.length - 1) {
+let comp;
+const partition = (arr, l = 0, r = arr.length - 1) => {
     const pivot = l;
-    let _l = l + 1;
-    let _r = r;
+    let _l = l + 1, _r = r;
     while (_l <= _r) {
         for (; _l <= r && arr[_l] < arr[pivot]; _l++)
             ;
         for (; _r > l && arr[_r] >= arr[pivot]; _r--)
             ;
-        if (_l > _r) {
-            [arr[pivot], arr[_r]] = [arr[_r], arr[pivot]];
+        if (comp(_l, _r)) {
+            [arr[_l], arr[_r]] = [arr[_r], arr[_l]];
         }
         else {
-            [arr[_l], arr[_r]] = [arr[_r], arr[_l]];
+            [arr[pivot], arr[_r]] = [arr[_r], arr[pivot]];
         }
     }
     return _r;
-}
-function insertionSort(arr, l = 0, r = arr.length - 1) {
+};
+const insertionSort = (arr, l = 0, r = arr.length - 1) => {
     for (let i = l + 1; i <= r; i++) {
-        const value = arr[i];
+        let value = arr[i];
         let j = i - 1;
-        for (; j >= l && arr[j] > value; j--) {
+        for (; j >= l && comp(value, arr[j]); j--) {
             arr[j + 1] = arr[j];
         }
         arr[j + 1] = value;
     }
     return arr;
-}
-function sort(arr, l = 0, r = arr.length - 1) {
+};
+const qsort = (arr, l = 0, r = arr.length - 1) => {
     if (r - l <= 50) {
         return insertionSort(arr, l, r);
     }
     const pivot = partition(arr, l, r);
-    sort(arr, l, pivot - 1);
-    sort(arr, pivot + 1, r);
+    qsort(arr, l, pivot - 1);
+    qsort(arr, pivot + 1, r);
     return arr;
-}
+};
+const sort = (arr, _comp = (l, r) => l < r, l = 0, r = arr.length - 1) => {
+    comp = _comp;
+    return qsort(arr, l, r);
+};
 module.exports = sort;
