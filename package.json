@@ -1,12 +1,12 @@
 {
   "name": "fast-array-sort",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
-  "main": "index.js",
+  "main": "src/main/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "mocha",
-    "cover": "istanbul cover  _mocha",
+    "test": "mocha src/test/**/*.js",
+    "cover": "istanbul cover _mocha src/test/**/*.js",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "tslint": "tslint --fix -c tslint.json -p tsconfig.json",
     "precommit": "lint-staged"

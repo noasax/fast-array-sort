@@ -17,7 +17,7 @@ npm install fast-array-sort
 ```javascript
 const sort = require("../src/index");
 
-console.log(sort([4, 2, 5, 1, 3]));
+sort([4, 2, 5, 1, 3]);
 // [ 1, 2, 3, 4, 5 ]
 
 const arr = [
@@ -27,7 +27,7 @@ const arr = [
   { order: 2, name: "dollar" },
   { order: 3, name: "emit" },
 ];
-console.log(sort(arr, (l, r) => l.order < r.order));
+sort(arr, (l, r) => l.order < r.order);
 /*
 [
   { order: 1, name: "apple" },
@@ -44,7 +44,7 @@ console.log(sort(arr, (l, r) => l.order < r.order));
 ```typescript
 import sort from "../src/index";
 
-console.log(sort([4, 2, 5, 1, 3]));
+sort([4, 2, 5, 1, 3]);
 // [ 1, 2, 3, 4, 5 ]
 
 const arr: any[] = [

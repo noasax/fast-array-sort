@@ -1,5 +1,5 @@
 import chai from "chai";
-import sort from "../src/index";
+import sort from "../main/index";
 
 const should = chai.should();
 
