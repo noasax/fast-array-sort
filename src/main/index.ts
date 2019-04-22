@@ -1,4 +1,4 @@
-let comp: (_l: any, _r: any) => boolean;
+let comp: (_l: any, _r: any) => number;
 
 const partition = (arr: any[], l: number = 0, r: number = arr.length - 1): number => {
   const pivot = l;
@@ -8,7 +8,7 @@ const partition = (arr: any[], l: number = 0, r: number = arr.length - 1): numbe
   while (_l <= _r) {
     for (; _l <= r && arr[_l] < arr[pivot]; _l++);
     for (; _r > l && arr[_r] >= arr[pivot]; _r--);
-    if (comp(_l, _r)) {
+    if (comp(_l, _r) < 0) {
       [arr[_l], arr[_r]] = [arr[_r], arr[_l]];
     } else {
       [arr[pivot], arr[_r]] = [arr[_r], arr[pivot]];
@@ -21,7 +21,7 @@ const insertionSort = (arr: any[], l: number = 0, r: number = arr.length - 1): a
   for (let i = l + 1; i <= r; i++) {
     const value = arr[i];
     let j = i - 1;
-    for (; j >= l && comp(value, arr[j]); j--) {
+    for (; j >= l && comp(value, arr[j]) < 0; j--) {
       arr[j + 1] = arr[j];
     }
     arr[j + 1] = value;
@@ -43,7 +43,7 @@ const qsort = (arr: any[], l: number = 0, r: number = arr.length - 1): any[] => 
 
 const sort = (
   arr: any[],
-  _comp = (_l: any, _r: any) => _l < _r,
+  _comp: (_l: any, _r: any) => number = (_l: any, _r: any) => (_l < _r ? -1 : 1),
   l: number = 0,
   r: number = arr.length - 1,
 ): any[] => {

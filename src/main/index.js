@@ -9,7 +9,7 @@ const partition = (arr, l = 0, r = arr.length - 1) => {
             ;
         for (; _r > l && arr[_r] >= arr[pivot]; _r--)
             ;
-        if (comp(_l, _r)) {
+        if (comp(_l, _r) < 0) {
             [arr[_l], arr[_r]] = [arr[_r], arr[_l]];
         }
         else {
@@ -22,7 +22,7 @@ const insertionSort = (arr, l = 0, r = arr.length - 1) => {
     for (let i = l + 1; i <= r; i++) {
         const value = arr[i];
         let j = i - 1;
-        for (; j >= l && comp(value, arr[j]); j--) {
+        for (; j >= l && comp(value, arr[j]) < 0; j--) {
             arr[j + 1] = arr[j];
         }
         arr[j + 1] = value;
@@ -38,7 +38,7 @@ const qsort = (arr, l = 0, r = arr.length - 1) => {
     qsort(arr, pivot + 1, r);
     return arr;
 };
-const sort = (arr, _comp = (_l, _r) => _l < _r, l = 0, r = arr.length - 1) => {
+const sort = (arr, _comp = (_l, _r) => (_l < _r ? -1 : 1), l = 0, r = arr.length - 1) => {
     comp = _comp;
     return qsort(arr, l, r);
 };
